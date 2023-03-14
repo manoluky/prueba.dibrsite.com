@@ -244,12 +244,12 @@ h4 {
   margin-right:
 }
 
-.ver-todas {
+.propiedades-all {
   display: block;
   justify-content: center;
 }
 
-.ver-todas a:hover {
+.propiedades-all a:hover {
   color: #9c9c8c;
 }
 
