@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const { valido, errores } = validarFormulario(data);
 
     const mensajeExito = document.getElementById('mensaje-exito');
+    const form = document.getElementById('contacto');
 
     if (!valido) {
       // Ocultar el mensaje de éxito si está visible
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Mostrar el div del mensaje de éxito
       mensajeExito.style.display = 'block';
-    
+      form.style.display = 'none';
     }
   });
 });
