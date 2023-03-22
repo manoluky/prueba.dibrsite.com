@@ -123,7 +123,7 @@ pipeline {
     stage('Automatizacion') {
       steps {
         cleanWs()
-        git branch: 'master', url: 'https://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@github.com/dbustamanter/Healenium_POC.git/'
+        git branch: 'master', url: 'git@github.com:dbustamanter/Healenium_POC.git'
         //sh 'git clone -b integracionXray https://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@github.com/dbustamanter/Healenium_POC.git'
         //sh 'cd /Healenium_POC'
         sh 'pwd'
@@ -177,14 +177,14 @@ pipeline {
     post {
         success {
           echo 'El despliegue al ambiente PROD ha sido exitoso'
-          sh '''sed -i 's/"summary": "Despliegue QA exitoso"/"summary": "Despliegue PROD exitoso"/g' integracion/jira.json'''
+          sh '''sed -i 's/"summary": "TITULOJSON"/"summary": "Despliegue PROD exitoso"/g' integracion/jira.json'''
           sh '''
           curl -H "Content-Type: multipart/form-data" -X POST -F info=@integracion/jira.json -F results=@integracion/prueba-passed.json -H "Authorization: Bearer $TOKEN" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber/multipart
           '''
         }
         failure {
           echo 'El despliegue al ambiente PROD ha fallado'
-          sh '''sed -i 's/"summary": "Despliegue QA exitoso"/"summary": "Despliegue PROD fallido"/g' integracion/jira.json'''
+          sh '''sed -i 's/"summary": "TITULOJSON"/"summary": "Despliegue PROD fallido"/g' integracion/jira.json'''
           sh '''
           curl -H "Content-Type: multipart/form-data" -X POST -F info=@integracion/jira.json -F results=@integracion/prueba-failed.json -H "Authorization: Bearer $TOKEN" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber/multipart
           '''
