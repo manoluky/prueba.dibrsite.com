@@ -123,7 +123,7 @@ pipeline {
     stage('Automatizacion') {
       steps {
         cleanWs()
-        git branch: 'master', url: 'https://dbustamanter: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@github.com/dbustamanter/Healenium_POC.git'
+        git branch: 'master', url: 'https://dbustamanter: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@github.com/dbustamanter/Healenium_POC.git'
         //sh 'git clone -b master https://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@github.com/dbustamanter/Healenium_POC.git'
 	sh 'pwd'
         sh 'gradle runWithCucumber -P tags=@TEST_IXR-93'
