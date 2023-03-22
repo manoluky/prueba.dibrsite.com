@@ -123,7 +123,7 @@ pipeline {
     stage('Automatizacion') {
       steps {
         cleanWs()
-        git branch: 'master', url: 'git@github.com:dbustamanter/Healenium_POC.git'
+        git branch: 'master', url: 'https://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@github.com/dbustamanter/Healenium_POC.git'
         //sh 'git clone -b develop https://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@github.com/dbustamanter/Healenium_POC.git'
         //sh 'cd /Healenium_POC'
         sh 'pwd'
