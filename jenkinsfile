@@ -120,19 +120,19 @@ pipeline {
         }
       }
     }
-    stage('Automatizacion') {
-      steps {
-        cleanWs()
-        git branch: 'master', url: 'https://dbustamanter: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@github.com/dbustamanter/Healenium_POC.git'
+    //stage('Automatizacion') {
+      //steps {
+        //cleanWs()
+        //git branch: 'master', url: 'https://dbustamanter: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@github.com/dbustamanter/Healenium_POC.git'
         //sh 'git clone -b master https://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@github.com/dbustamanter/Healenium_POC.git'
-	sh 'pwd'
-        sh 'gradle runWithCucumber -P tags=@TEST_IXR-93'
-        sh 'ls'
-        sh 'chmod +x tokenXray.sh'
-        sh './tokenXray.sh'
-        sh 'cd results && export tempUrl=$(cat url.txt) && curl -H \'Authorization: Basic ZGllZ28uYnVzdGFtYW50ZUB0c29mdGxhdGFtLmNvbTpBVEFUVDN4RmZHRjBHemVnNFV1Ui1CYmFRczl4Ql9jUEo3SFpyN1VqQ214RG95blA2dGZUU0lCa25ubThIVEtGQ0NUMGx2VjU5X0UtTGlMZzE0RFlCVzQ4d0dEZHlYVGxVODc5OEFLeFhldHhHQUZaT1k1UnNJcEtuNkNTOXczdnNoeXdEb0Jkb1BKSlFHbk9JRlhCZjVIY25MYlJOT1BKRlNsT0dRemxsNF9RSUpTN0JSR3RxVU09QzAxNTU0MTk=\' -X POST $tempUrl  -H \"Content-Type:multipart/form-data\" -H \'X-Atlassian-Token: no-check\' -F \'file=@"reporteQA.pdf\"\' && rm url.txt'
-      }
-    }
+	//sh 'pwd'
+        //sh 'gradle runWithCucumber -P tags=@TEST_IXR-93'
+        //sh 'ls'
+        //sh 'chmod +x tokenXray.sh'
+        //sh './tokenXray.sh'
+        //sh 'cd results && export tempUrl=$(cat url.txt) && curl -H \'Authorization: Basic ZGllZ28uYnVzdGFtYW50ZUB0c29mdGxhdGFtLmNvbTpBVEFUVDN4RmZHRjBHemVnNFV1Ui1CYmFRczl4Ql9jUEo3SFpyN1VqQ214RG95blA2dGZUU0lCa25ubThIVEtGQ0NUMGx2VjU5X0UtTGlMZzE0RFlCVzQ4d0dEZHlYVGxVODc5OEFLeFhldHhHQUZaT1k1UnNJcEtuNkNTOXczdnNoeXdEb0Jkb1BKSlFHbk9JRlhCZjVIY25MYlJOT1BKRlNsT0dRemxsNF9RSUpTN0JSR3RxVU09QzAxNTU0MTk=\' -X POST $tempUrl  -H \"Content-Type:multipart/form-data\" -H \'X-Atlassian-Token: no-check\' -F \'file=@"reporteQA.pdf\"\' && rm url.txt'
+      //}
+    //}
     stage('Merge Master') {
       steps {
         cleanWs()
