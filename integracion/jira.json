@@ -5,7 +5,7 @@
             "key": "IXR"
         },
         "summary": "TITULOJSON",
-        "description": "DESCRIPCIONJSON, USUARIOS",
+        "description": "Test exitoso",
         "issuetype": {
             "name": "Test Execution"
         }
