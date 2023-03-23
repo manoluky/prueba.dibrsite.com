@@ -115,11 +115,11 @@ pipeline {
         git branch: 'develop', url: 'https://github.com/dbustamanter/prueba.dibrsite.com.git'
         sh "git config --global user.email 'Tsoft@tsoftglobal.com'"
         sh "git config --global user.name 'Tsoft'"
-        sh "git checkout testing2"
+        sh "git checkout master"
         sh "git merge --no-ff -m 'Merge de cambios de develop' develop"
         script {
           withCredentials([string(credentialsId: 'merge_tokenppl', variable: 'MERGE_TOKENPPL')]){
-            sh "git push -f https://${MERGE_TOKENPPL}@github.com/dbustamanter/prueba.dibrsite.com.git testing2"
+            sh "git push -f https://${MERGE_TOKENPPL}@github.com/dbustamanter/prueba.dibrsite.com.git master"
           }
         }
       }
@@ -144,7 +144,7 @@ pipeline {
     stage('Deploy Prod') {
       steps {
         cleanWs()
-        git branch: 'testing2', url: 'https://github.com/dbustamanter/prueba.dibrsite.com.git'
+        git branch: 'master', url: 'https://github.com/dbustamanter/prueba.dibrsite.com.git'
         sh 'cp -r $WORKSPACE/* /var/www/html/prod'
       }
     post {
