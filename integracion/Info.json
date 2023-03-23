@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "project": {
+      "id": "10000",
+      "key": "IXR"
+    },
+    "summary": "Ejecución Demo Healenium",
+    "issuetype": {
+      "name": "Test Execution"
+    }
+  },
+  "xrayFields": {
+    "testPlanKey": "IXR-94"
+  }
+}

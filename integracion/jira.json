@@ -1,0 +1,17 @@
+{
+     "fields": {
+        "project": {
+            "id": "10000",
+            "key": "IXR"
+        },
+        "summary": "TITULOJSON",
+        "description": "Test exitoso",
+        "issuetype": {
+            "name": "Test Execution"
+        }
+    },
+
+    "xrayFields": {
+        "testPlanKey": "IXR-144" 
+    }
+}

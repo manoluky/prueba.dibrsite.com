@@ -1,0 +1,17 @@
+{
+  "name": "prueba.dibrsite.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jsdom": "^21.1.1",
+    "mocha": "^10.2.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

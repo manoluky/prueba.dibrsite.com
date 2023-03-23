@@ -41,8 +41,8 @@
   <img src="../img/destacada3.jpg" alt="Imagen principal">
 
   <main class="contenedor seccion contenido-centrado">
-    <h2 class="fw-300 centrar-texto">Llena el formulario de Contacto<h2>
-        <form class="contacto" action="">
+    <h2 class="fw-300 centrar-texto" id="h2-contacto">Formulario de Contacto<h2>
+        <form class="contacto" action="" id="contacto">
           <fieldset>
             <legend>Información Personal</legend>
             <label for="nombre">Nombre: </label>
@@ -51,8 +51,8 @@
             <label for="email">E-mail: </label>
             <input type="email" id="email" placeholder="Tu Correo Electrónico" required>
 
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" placeholder="Tu Teléfono" required>
+            <label for="telefonoId">Teléfono</label>
+            <input type="tel" id="telefonoId" placeholder="+569" required>
 
             <label for="mensaje">Mensaje: </label>
             <textarea id="mensaje" cols="60" rows="10"></textarea>
@@ -99,9 +99,17 @@
 
           </fieldset>
 
+          <div id="errores"></div>
+          
           <input type="submit" value="enviar" class="boton boton-verde">
-
         </form>
+        <div id="mensaje-exito" class="mensaje-exito" style="display: none;">
+          Formulario enviado correctamente
+        </div>
+
+    
+
+
   </main>
 
   <footer class="site-footer seccion">
@@ -115,6 +123,13 @@
       </nav>
     </div>
   </footer>
+
+
+
+  <!-- Referencia al archivo JavaScript externo -->
+  <script type="module" src="../js/main/validate.js"></script>
+  
+
 </body>
 
 </html>
