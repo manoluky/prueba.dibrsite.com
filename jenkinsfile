@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         gradle "gradle-7.6"
-        nodejs "node"
+        nodejs "node-14"
     }
     environment {
         TESTPLAN = "IXR-94"
@@ -98,15 +98,9 @@ pipeline {
     stage('Automatizacion') {
       steps {
         cleanWs()
-        script {
-            withCredentials([string(credentialsId: 'healenium_token', variable: 'HEALENIUM_TOKEN')]) {
-                git branch: 'master', url: "https://${HEALENIUM_TOKEN}@github.com/dbustamanter/Healenium_POC.git"
-            }
-        }
-        sh 'gradle runWithCucumber -P tags=@TEST_IXR-93'
-        sh 'chmod +x tokenXray.sh'
-        sh './tokenXray.sh'
-        sh 'cd results && export tempUrl=$(cat url.txt) && curl -H \'Authorization: Basic ZGllZ28uYnVzdGFtYW50ZUB0c29mdGxhdGFtLmNvbTpBVEFUVDN4RmZHRjBHemVnNFV1Ui1CYmFRczl4Ql9jUEo3SFpyN1VqQ214RG95blA2dGZUU0lCa25ubThIVEtGQ0NUMGx2VjU5X0UtTGlMZzE0RFlCVzQ4d0dEZHlYVGxVODc5OEFLeFhldHhHQUZaT1k1UnNJcEtuNkNTOXczdnNoeXdEb0Jkb1BKSlFHbk9JRlhCZjVIY25MYlJOT1BKRlNsT0dRemxsNF9RSUpTN0JSR3RxVU09QzAxNTU0MTk=\' -X POST $tempUrl  -H \"Content-Type:multipart/form-data\" -H \'X-Atlassian-Token: no-check\' -F \'file=@"reporteQA.pdf\"\' && rm url.txt'
+        git branch: 'main', url: 'https://github.com/aaronbarra/DockerTC.git'
+        sh 'chmod +x ${WORKSPACE}/app/entrypoint.sh'
+        sh 'docker run -e RAMA=${RAMA} -e TAG=${TAG} -e TIPO=${TIPO} dockertc_test-gradle-lab'
       }
     }
     stage('Merge Master') {
