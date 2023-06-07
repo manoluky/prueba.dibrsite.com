@@ -13,6 +13,9 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "scripts": {
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner"
   }
 }
 
